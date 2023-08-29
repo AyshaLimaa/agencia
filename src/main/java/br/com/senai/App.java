@@ -42,6 +42,11 @@ public class App
         e2.nomeInstituicao = "IFPI - Inst. Federal do Piauí";
         e2.dataInicio = LocalDate.of(2020, 02, 01);
         e2.dataFim = LocalDate.of(2023, 06, 10);
+        
+        Candidato camilly = new Candidato();
+        camilly.nomeCompleto = "Camilly vitoria";
+        camilly.dataNascimento = LocalDate.of(2006, 8, 23);
+        camilly.email = "camillyLopes@gmail.com";
 
         // List<Escolaridade> list = new ArrayList<>();
         // list.add(e1);
@@ -50,13 +55,23 @@ public class App
         aysha.escolaridades = Arrays.asList(e1,e2);
 
         System.out.println("Nome Completo "+aysha.nomeCompleto);
-        System.out.println("Idade: "+ Period.between(aysha.dataNascimento, 
-            LocalDate.now()).getYears());
+        System.out.println("Idade: "+ (aysha.calcularidade()));
         System.out.println("Endereço:" + aysha.endereco.logradouro);
 
         for (Escolaridade escolaridade : aysha.escolaridades) {
             System.out.println(escolaridade.nomeCurso+" - "+escolaridade.nomeInstituicao);
+        
+        
+        System.out.println("Nome Completo "+aysha.nomeCompleto);
+        System.out.println("Maior de Idade "+ (aysha.eMaioridade()));
+
+        System.out.println("***********************************");
+        System.out.println("Nome Completo "+camilly.nomeCompleto);
+        System.out.println("Maior de Idade: "+ (camilly.eMaioridade()));
+
+      
+        }
         }
     }
-}
+
 
