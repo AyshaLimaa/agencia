@@ -1,77 +1,55 @@
 package br.com.senai;
 
-
 import java.time.LocalDate;
-import java.time.Period;
+import java.util.ArrayList;
 import java.util.Arrays;
 
-
-import br.com.senai.enuns.Estado;
 import br.com.senai.enuns.Genero;
 import br.com.senai.models.Candidato;
-import br.com.senai.models.Endereco;
-import br.com.senai.models.Escolaridade;
+import br.com.senai.models.Cliente;
+import br.com.senai.models.Vaga;
 
-public class App 
-{
-    public static void main( String[] args ){
-        
-        Endereco endereco = new Endereco();
-        endereco.cep = "64000000";
-        endereco.logradouro = "Rua Porto, 3555";
-        endereco.cidade = "Teresina";
-        endereco.estado = Estado.PI;
+public class App {
+   public static void main (String[] args){
 
-        Candidato aysha = new Candidato();
-        aysha.nomeCompleto = "aysha Cristina Ramos Lima";
-        aysha.dataNascimento = LocalDate.of(2000, 10, 16);
-        aysha.email = "ayshaLima@gmail.com";
-        aysha.genero = Genero.F;
-        aysha.naturalidade = Estado.PI.toString();
-        aysha.nacionalidade = "Brasil";
-        aysha.endereco = endereco;
+      Vaga ti = new Vaga();
+      ti.setTitulo("Suporte tecnico");
+      ti.setNumeroDeVaga(2);
+      ti.setDescricao("Devera ter conhecimento em montagem"
+      + "manutençao de Computadores");
+      ti.setSalario(1900.0);
+      ti.setInicioPublicacao(LocalDate.of(2023   , 8, 20));
+      ti.setFimPublicacao(LocalDate.of(2023, 9, 4));
 
-        Escolaridade e1 = new Escolaridade();
-        e1.nomeCurso = "Sistema para Internet";
-        e1.nomeInstituicao = "Senai";
-        e1.dataInicio = LocalDate.of(2022, 10, 01);
-        e1.dataFim = LocalDate.of(2023, 06, 10);
+      Cliente senai = new Cliente();
+      senai.setNome("Senai");
+      senai.setResponsavel("Araidna");
+      senai.setCpfcnpj("00.003.556/0003-88");
 
-        Escolaridade e2 = new Escolaridade();
-        e2.nomeCurso = "Engenharia Civil";
-        e2.nomeInstituicao = "IFPI - Inst. Federal do Piauí";
-        e2.dataInicio = LocalDate.of(2020, 02, 01);
-        e2.dataFim = LocalDate.of(2023, 06, 10);
-        
-        Candidato camilly = new Candidato();
-        camilly.nomeCompleto = "Camilly vitoria";
-        camilly.dataNascimento = LocalDate.of(2006, 8, 23);
-        camilly.email = "camillyLopes@gmail.com";
+      ti.setCliente(senai);
+      Candidato aysha = new Candidato();
+      aysha.setNomeCompleto("Aysha Cristina");
+      aysha.setDataNascimento(LocalDate.of(2007, 2, 4));
+      aysha.setGenero(Genero.F);
 
-        // List<Escolaridade> list = new ArrayList<>();
-        // list.add(e1);
-        // list.add(e2);
+      Candidato Camilly = new Candidato();
+      Camilly.setNomeCompleto("Camilly Vitoria");
+      Camilly.setDataNascimento(LocalDate.of(2006, 8, 23));
+      Camilly.setGenero(Genero.F);
 
-        aysha.escolaridades = Arrays.asList(e1,e2);
+      ti.getCandidatos().addAll(Arrays.asList(aysha, Camilly));
 
-        System.out.println("Nome Completo "+aysha.nomeCompleto);
-        System.out.println("Idade: "+ (aysha.calcularidade()));
-        System.out.println("Endereço:" + aysha.endereco.logradouro);
+      System.out.println("Nome da vaga"+ti.getTitulo()+ "\nSalario:$" + ti.getSalario()+
+      "\nInicio:" + ti.getInicioPublicacao() + "\nEntregar ate:" + ti.getFimPublicacao() +
+      "\nEmpresa:" + ti.getCliente().getNome());
 
-        for (Escolaridade escolaridade : aysha.escolaridades) {
-            System.out.println(escolaridade.nomeCurso+" - "+escolaridade.nomeInstituicao);
-        
-        
-        System.out.println("Nome Completo "+aysha.nomeCompleto);
-        System.out.println("Maior de Idade "+ (aysha.eMaioridade()));
+      for (Candidato candidato: ti.getCandidatos()) {
+         System.out.println("Nome:" +candidato.getNomeCompleto());
+      }
 
-        System.out.println("***********************************");
-        System.out.println("Nome Completo "+camilly.nomeCompleto);
-        System.out.println("Maior de Idade: "+ (camilly.eMaioridade()));
-
-      
-        }
-        }
-    }
-
+   }
+ }
+ 
+    
+ 
 

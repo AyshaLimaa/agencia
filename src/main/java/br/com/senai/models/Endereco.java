@@ -1,13 +1,16 @@
 package br.com.senai.models;
 import br.com.senai.enuns.Estado;
+import lombok.Getter;
+import lombok.Setter;
 
 public class Endereco {
-  
-    public String cep;
-    public String logradouro;
-    public String bairro;
-    public String cidade;
-    public Estado estado;
+  @Getter
+  @Setter
+    private String cep;
+    private String logradouro;
+    private String bairro;
+    private String cidade;
+    private Estado estado;
  }
     
 

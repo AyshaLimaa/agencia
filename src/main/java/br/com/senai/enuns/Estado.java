@@ -1,5 +1,10 @@
 package br.com.senai.enuns;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum Estado {
     AC("Acre"),
     AL("Alagoas"),
@@ -30,12 +35,5 @@ public enum Estado {
     TO ("Tocantins") ;
 
     private String nome;
-
-    Estado(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome() {
-        return nome;
-    }
 }
+
